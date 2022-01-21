@@ -1,0 +1,33 @@
+{
+  "name": "price-indexer",
+  "version": "1.0.0",
+  "description": "price-indexer is a SDK built to fetch price feed data from Chainlink Oracles.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prakashith/price-indexer.git"
+  },
+  "keywords": [
+    "chainlink",
+    "price-feed",
+    "oracles",
+    "price",
+    "oracles",
+    "web3",
+    "blockchain",
+    "ethereum",
+    "javascript"
+  ],
+  "author": "Jay Rank",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/prakashith/price-indexer/issues"
+  },
+  "homepage": "https://github.com/prakashith/price-indexer#readme",
+  "dependencies": {
+    "web3": "^1.7.0"
+  }
+}
