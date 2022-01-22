@@ -17,13 +17,13 @@ This function returns the value of 1 Ethreum in terms of USD currency.
 - Use this function when you simply want to fetch `ETH-USD` conversion.
 
 ```js
-const price-indexer = require('price-indexer');
+const PriceIndexer = require('price-indexer');
 
-let network-name = 'mainnet'; // Only works on 'mainnet' network over EVM.
+let networkName = 'mainnet'; // Only works on 'mainnet' network over EVM.
 let fetchPriceIndex;
 
 async function getLatestPriceFeed() {
-	fetchPriceIndex = await new price-indexer.PriceOracle(network-name).basePrice();
+	fetchPriceIndex = await new PriceIndexer(networkName).basePrice();
 	console.log(fetchPriceIndex);
 }
 
@@ -40,15 +40,15 @@ This function returns the value of one asset/cryptocurrency in terms of other as
 - If the base assset is not `USD`,  you can get the price in `USD` by setting the value tertiary variable `false`.
 
 ```js
-const price-indexer = require('price-indexer');
+const PriceIndexer = require('price-indexer');
 
-let network-name = 'mainnet'; // 'mainnet', 'rinkeby', 'ropsten'
-let oracle-contract-address = '0x2DE7E4a9488488e0058B95854CC2f7955B35dC9b'; // FTM-ETH oracle contract address
+let networkName = 'mainnet'; // 'mainnet', 'rinkeby', 'ropsten'
+let oracleContractAddress = '0x2DE7E4a9488488e0058B95854CC2f7955B35dC9b'; // FTM-ETH oracle contract address
 // Visit https://data.chain.link/ to find options for specific token/asset for oracle contract addresses.
 let fetchPriceIndex;
 
 async function getLatestPriceFeed() {
-	fetchPriceIndex = await new price-indexer.PriceOracle(network-name, oracle-contract-address, false).assetPrice();
+	fetchPriceIndex = await new PriceIndexer(networkName, oracleContractAddress, false).assetPrice();
 	console.log(fetchPriceIndex);
 }
 
