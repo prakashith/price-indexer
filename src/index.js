@@ -16,7 +16,7 @@ class PriceOracle {
 			const fetchLatestDataETHtoUSD = new this.web3.eth.Contract(this.aggregatorV3InterfaceABI, this.addressOfPriceOracle)
 			const latestDataETHtoUSD = await fetchLatestDataETHtoUSD.methods.latestRoundData().call()
 			// latestDataETHtoUSD.methods.latestRoundData().call().then((ETHToUSD) => {
-			// 	console.log("Latest ETHToUSD Data", ETHToUSD)
+			// 	console.log("Latest ETHToUSD Data", ETHToUSD);
 			// })
 			return parseFloat(latestDataETHtoUSD['answer']) / 100000000
 		}
