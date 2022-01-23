@@ -55,3 +55,25 @@ async function getLatestPriceFeed() {
 
 getLatestPriceFeed();
 ```
+
+<br>
+
+**3. Fetch Latest Price for any asset from DIA Org**
+
+This function returns the value of one asset/cryptocurrency directly via DIA Data APIs. Read more about these APIs [here](https://docs.diadata.org/documentation/api-1/api-endpoints#coins).
+
+- Use this function when you simply want to fetch latest price from DIA Data APIs.
+
+```js
+const PriceIndexer = require('price-indexer');
+
+let assetName = 'FTM' // Visit https://docs.diadata.org to find more options for retriving price index of an asset.
+let fetchPriceIndex;
+
+async function getLatestPriceFeed() {
+	fetchPriceIndex = await new PriceIndexer(...[null, null, null], 'FTM').priceDIAData()
+	console.log(fetchPriceIndex);
+}
+
+getLatestPriceFeed();
+```
