@@ -1,7 +1,9 @@
 # price-indexer
 
+![](https://img.shields.io/npm/dt/price-indexer.svg?style=for-the-badge&labelColor=000000) ![](https://img.shields.io/github/languages/code-size/prakashith/price-indexer?style=for-the-badge&labelColor=000000) ![](https://img.shields.io/npm/l/price-indexer?style=for-the-badge&labelColor=000000) ![](https://img.shields.io/github/package-json/v/prakashith/price-indexer?style=for-the-badge&labelColor=000000) <a aria-label="NPM version" href="https://www.npmjs.com/package/price-indexer"> <img alt="" src="https://img.shields.io/npm/v/next.svg?style=for-the-badge&labelColor=000000"> </a>
+
 ## Introduction
-`price-indexer` is a SDK built to fetch price feed data from Chainlink Oracles.
+`price-indexer` is a SDK built to fetch price feed data from Chainlink Oracles over EVM-compatible blockchains as well as from DIA Org over NEAR blockchain.
 
 For installation, refer [here](https://www.npmjs.com/package/price-indexer) or run the following command in your node project.
 
@@ -71,7 +73,7 @@ let assetName = 'FTM' // Visit https://docs.diadata.org to find more options for
 let fetchPriceIndex;
 
 async function getLatestPriceFeed() {
-	fetchPriceIndex = await new PriceIndexer(...[null, null, null], 'FTM').priceDIAData()
+	fetchPriceIndex = await new PriceIndexer(...[null, null, null], assetName).priceDIAData()
 	console.log(fetchPriceIndex);
 }
 

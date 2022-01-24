@@ -2,17 +2,17 @@ const Web3 = require("web3")
 const axios = require('axios')
 
 class CustomError extends Error {  
-  constructor (message) {
-    super(message)
-    this.name = this.constructor.name
-    this.status = 404
+	constructor (message) {
+		super(message)
+		this.name = this.constructor.name
+		this.status = 404
 		this.sendError(message)
-  }
+	}
 
-	sendError(message) {
-    console.log(message)
+		sendError(message) {
+		console.log(message)
 		process.exit(1)
-  }
+	}
 }
 
 class PriceOracle {
@@ -34,8 +34,8 @@ class PriceOracle {
 
 	priceDIAData = async () => {
 		try {
-			axios.get('https://api.diadata.org/v1/quotation/' + this.assetName)
-				.then(res => console.log(res.data['Price'])).catch(err => console.log("Invalied response. Please enter the correct asset name!. StackTrace here:\n" + err))
+			return await axios.get('https://api.diadata.org/v1/quotation/' + this.assetName)
+				.then(res => res.data['Price']).catch(err => console.log("Invalied response. Please enter the correct asset name!. StackTrace here:\n" + err))
 		}
 		catch (e) {
 			console.log("Invalied response. Please enter the correct asset name!")
