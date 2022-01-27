@@ -25,7 +25,7 @@ class PriceOracle {
 			this.assetName = assetName
 		}
 		else {
-			this.network = this.supportingNetworks.includes(network) ? network : console.log(new CustomError('Enter Valid Netwrok!').sendError)
+			this.network = this.supportingNetworks.includes(network) ? network : console.log(new CustomError('Enter Valid Network!').sendError)
 			this.web3 = new Web3("https://" + network + ".infura.io/v3/34ed41c4cf28406885f032930d670036")
 			this.addressOfPriceOracle = addressOfPriceOracle;
 			this.baseUSD = baseUSD;
@@ -34,11 +34,19 @@ class PriceOracle {
 
 	priceDIAData = async () => {
 		try {
-			return await axios.get('https://api.diadata.org/v1/quotation/' + this.assetName)
-				.then(res => res.data['Price']).catch(err => console.log("Invalied response. Please enter the correct asset name!. StackTrace here:\n" + err))
+			return await axios.get('https://api.diadata.org/v1/quotation/' + this.assetName.toUpperCase()).then(res => res.data).catch(err => console.log("Invalied response. Please enter the correct asset name!. StackTrace here:\n" + err))
 		}
 		catch (e) {
 			console.log("Invalied response. Please enter the correct asset name!")
+		}
+	}
+
+	priceMESSARIData = async () => {
+		try {
+			return await axios.get('https://data.messari.io/api/v1/assets/' + this.assetName.toLowerCase() + '/metrics').then(res => res.data).catch(err => console.log("Invalied response. Please enter the correct assetName!. StackTrace here:\n" + err))
+		}
+		catch (e) {
+			console.log("Invalied response. Please enter the correct assetName!")
 		}
 	}
 
